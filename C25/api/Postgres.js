@@ -1,1 +1,0 @@
-const results = await sql`SELECT * FROM todos`;
