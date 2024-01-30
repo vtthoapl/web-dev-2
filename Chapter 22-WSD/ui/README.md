@@ -1,38 +1,17 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# RESTful APIs
+- HTTP-based client-server architecture: APIs use client-server architecture, where the client & the server are seperated from each other & requests are made over HTTP.
 
-## Creating a project
+- Stateless communication: APIs are stateless, means that the server doesnt need to store any information about the session. Each request is independent of the previous request.
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Identifiable resources: APIs are about resourses(e.g docc, img...) that have identifiers. In the context of Resful APIs, the identifiers are URLs.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- Representable resources: The resourses are represented in a format that suit for the client. currently the most common format is JSON.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Manipulation of resourses through representations: the resourses can be manipulated through representations of their identifiers.
 
-## Developing
+- Self-descriptive messages: The messages that are sent between the client and the server are self-descriptive. i.e: they contain the information that is needed to understand the message. In the context of HTTP, this includes using HTTP status codes.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+# API design & REST
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Comtemporaty Restful APIs use HTTP as the communication protocol, which is stateless by design.
