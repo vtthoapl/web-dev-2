@@ -1,17 +1,22 @@
 <script>
-    import {onMount} from 'svelte';
-    import { getBooks } from '../../http-actions/books-api.js';
-let books = $state([]);
-
-onMount(async() => {
-    books = await getBooks()
-});
-</script>
-
-<h1>Books</h1>
-
-<ul>
-    {#each books as book }
-        <li>{book.name}</li> 
+    import Book from './Book.svelte';
+    import { useBookStore } from '../../stores/books.svelte.js';
+  
+    let selectedBook = $state(null); 
+    
+    const bookStore = useBookStore();
+  </script>
+  
+  <h1>Books</h1>
+  
+  <ul>
+    {#each bookStore.books as book}
+      <li>{book.name} <button on:click={() => selectedBook = book}>View</button><button>Delete</button></li> 
     {/each}
-</ul>
+  </ul>
+  
+  {#if selectedBook}
+    <Book book={selectedBook} />
+    <button on:click={() => selectedBook = null}>Clear</button>
+  {/if}
+  

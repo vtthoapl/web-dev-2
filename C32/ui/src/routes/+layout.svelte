@@ -1,15 +1,10 @@
 <script>
-    import "../app.css";
-
+    import { onMount } from 'svelte';
+    import { initBooks } from '../stores/books.svelte.js';
+    
+    onMount(() => {
+      initBooks(); 
+    });
   </script>
-<header>
-  <h1>Header</h1>
-</header>
-  <div>
-    <slot/>
-  </div>
-
-<footer>
-  <p>footer</p>
-</footer>
-
+  
+  <slot />
