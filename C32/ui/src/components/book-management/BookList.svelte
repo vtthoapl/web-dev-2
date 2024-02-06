@@ -1,6 +1,7 @@
 <script>
     import Book from './Book.svelte';
     import { useBookStore } from '../../stores/books.svelte.js';
+  import { deleteBook } from '../../http-actions/books-api';
   
     let selectedBook = $state(null); 
     
@@ -11,7 +12,7 @@
   
   <ul>
     {#each bookStore.books as book}
-      <li>{book.name} <button on:click={() => selectedBook = book}>View</button><button>Delete</button></li> 
+      <li>{book.name} <button on:click={() => selectedBook = book}>View</button><button on:click={() => deleteBook(book.id)}>Delete</button></li> 
     {/each}
   </ul>
   

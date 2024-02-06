@@ -24,6 +24,18 @@ const getBooks = async () => {
   
     return data;
   };
+  
+  const deleteBook = async (bookId) => {
+    const response = await fetch(`/api/books/${bookId}`, {
+      method: "DELETE"
+    });
+    
+    const data = await response.json();
+    if(!data.error) {
+      const bookStore = useBookStore();
+      bookStore.deleteBook(bookId)
+    }
+    return data;
+  }
 
-
-  export { createBook, getBooks };
+  export { createBook, getBooks , deleteBook};

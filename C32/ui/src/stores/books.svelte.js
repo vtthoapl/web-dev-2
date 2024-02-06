@@ -15,6 +15,7 @@ const useBookStore = () => {
     addBook: (book) => {
       books = [...books, book]
     },
+    delete: bookApi.deleteBook
   };
 };
 
