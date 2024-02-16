@@ -6,13 +6,19 @@
     let selectedBook = $state(null); 
     
     const bookStore = useBookStore();
+    
+    const handleDelete = async (bookId) => {
+      const response = await deleteBook(bookId)
+    }
   </script>
   
   <h1>Books</h1>
   
   <ul>
     {#each bookStore.books as book}
-      <li>{book.name} <button on:click={() => selectedBook = book}>View</button><button on:click={() => deleteBook(book.id)}>Delete</button></li> 
+      <li>{book.name} <button on:click={() => selectedBook = book}>View</button>
+        <button on:click={() => handleDelete(book.id)}>Delete</button>
+        </li>          
     {/each}
   </ul>
   

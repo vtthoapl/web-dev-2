@@ -25,8 +25,8 @@ export const POST = async ({ request }) => {
 
 export const DELETE = async ({ params }) => {
   const { id } = params;
+  console.log(body)
   const index = books.findIndex((book) => book.id === parseInt(id));
-  console.log("iiiiiidddd", id, "iiiiiiidexxxx", index)
 
   if (index !== -1) {
     books.splice(index, 1);
