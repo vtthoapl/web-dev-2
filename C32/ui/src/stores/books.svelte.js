@@ -1,6 +1,5 @@
 import * as bookApi from "../http-actions/books-api.js";
 
-
 let books = $state([]);
 
 const initBooks = async () => {
@@ -17,17 +16,20 @@ const useBookStore = () => {
       books = [...books, book]
     },
     deleteBook: async (bookId) => {
-      try {
+      console.log("Before: " + books.length)
+      books = await bookApi.deleteBook(bookId)
+      console.log("after: " + books.length)
+     /*  try {
         const response = await bookApi.deleteBook(bookId);
         if (response.status === 200) {
-          books = books.filter(book => book.id !== bookId)
+         // books = books.filter(book => book.id !== bookId)
         console.log(response.data.message); 
       } else {
         console.error(response.data.error); // Log any errors
       }
     } catch (error) {
       console.error('An error occurred while deleting the book:', error);
-      }
+      } */
     }
   }
 }

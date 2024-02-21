@@ -29,14 +29,14 @@ const getBooks = async () => {
     const response = await fetch(`/api/books/${bookId}`, {
       method: "DELETE"
     }); 
-    const data = await response.json();
+    return await response.json()
+  /*  const data = await response.json();
     console.log("books-apiiiii", data)
     if(!data.error) {
       const bookStore = useBookStore();
       bookStore.deleteBook(bookId)
     }
-    return data; 
+    return data;  */ 
   
   }
-
   export { createBook, getBooks , deleteBook};

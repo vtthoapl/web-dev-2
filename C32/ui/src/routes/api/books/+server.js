@@ -23,7 +23,7 @@ export const POST = async ({ request }) => {
   return json(book, { status: 200 });
 };
 
-export const DELETE = async ({ params }) => {
+/* export const DELETE = async ({ params }) => {
   const { id } = params;
   console.log(body)
   const index = books.findIndex((book) => book.id === parseInt(id));
@@ -37,4 +37,4 @@ export const DELETE = async ({ params }) => {
   } else {
     return json({ error: `Book with ID ${id} not found` }, { status: 404 });
   }
-};
+}; */

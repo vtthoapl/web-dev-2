@@ -1,14 +1,15 @@
 <script>
     import Book from './Book.svelte';
     import { useBookStore } from '../../stores/books.svelte.js';
-  import { deleteBook } from '../../http-actions/books-api';
+   // import { deleteBook } from '../../http-actions/books-api.js';
   
     let selectedBook = $state(null); 
     
     const bookStore = useBookStore();
     
     const handleDelete = async (bookId) => {
-      const response = await deleteBook(bookId)
+    // const response = await deleteBook(bookId)
+      useBookStore().deleteBook(bookId)
     }
   </script>
   
